@@ -70,8 +70,10 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Sabnzbd](#sabnzbd)
   - [Gluetun VPN Info](#gluetun-vpn-info)
   - [Drone CI Build](#drone-ci-builds)
+  - [Filebrowser](#filebrowser)
   - [Linkding](#linkding)
   - [Uptime Kuma](#uptime-kuma)
+  - [Uptime Kuma Status Page](#uptime-kuma-status-page)
   - [Tactical RMM](#tactical-rmm)
 - **[System Resource Monitoring](#system-resource-monitoring)**
   - [CPU Usage Current](#current-cpu-usage)
@@ -1491,6 +1493,7 @@ Allows web search using multiple user-defined search engines and other websites.
 --- | --- | --- | ---
 **`engines`** | `array` |  required | An array of search engine objects. Each search engine object should have two required properties: **title** and **url**. See the example below.
 **`placeholder`** | `string` |  optional | Placeholder text in the search box.
+**`openingMethod`** | `string` |  optional | Open search in one of `newtab`, `sametab` or `workspace`.
 
 #### Notes
 - The first search engine in the engines array will be treated as the default search engine, and used when the user presses `Enter` in the search box.
@@ -2599,6 +2602,77 @@ Display the last builds from a [Drone CI](https://www.drone.ci) instance. A self
 
 ---
 
+### Filebrowser
+
+Displays storage statistics and file listings from a [Filebrowser Quantum](https://github.com/gtsteffaniak/filebrowser) instance. Shows directory size, file/folder counts, favorite files, and recently modified files with quick-access links.
+
+#### Options
+
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`hostname`** | `string` | Required | The URL of your Filebrowser instance
+**`apiKey`** | `string` | Required | A long-lived API key (create in Settings → API Keys)
+**`source`** | `string` | _Optional_ | The source/scope name to browse. Defaults to the first available source
+**`path`** | `string` | _Optional_ | The directory path to display. Defaults to `/`
+**`favorites`** | `array` | _Optional_ | List of filenames to show as quick-access favorites
+**`showRecent`** | `number` | _Optional_ | Number of recently modified files to display. Defaults to `5`, set to `0` to disable
+**`limit`** | `number` | _Optional_ | Maximum number of files to display per section. Defaults to `10`
+**`hideStats`** | `boolean` | _Optional_ | If `true`, hides the storage statistics section
+**`hideFavorites`** | `boolean` | _Optional_ | If `true`, hides the favorites section
+**`hideRecent`** | `boolean` | _Optional_ | If `true`, hides the recent files section
+**`showDetailedStats`** | `boolean` | _Optional_ | If `true`, shows additional statistics including last modified date, largest file, hidden file count, total items, and file type breakdown. Defaults to `false`
+
+#### Example
+
+**Basic usage:**
+
+```yaml
+- type: filebrowser
+  useProxy: true
+  options:
+    hostname: http://filebrowser.local:8080
+    apiKey: VUE_APP_FILEBROWSER_KEY
+    source: Documents
+    path: /
+    showRecent: 5
+    favorites:
+      - important-notes.txt
+      - config.yaml
+```
+
+**With detailed statistics:**
+
+```yaml
+- type: filebrowser
+  useProxy: true
+  options:
+    hostname: http://filebrowser.local:8080
+    apiKey: VUE_APP_FILEBROWSER_KEY
+    source: Downloads
+    showDetailedStats: true
+    showRecent: 10
+    limit: 15
+```
+
+#### Widget Sections
+
+The widget displays up to four sections:
+
+1. **Storage Stats** - Directory name, total size, file and folder counts
+2. **Detailed Stats** (optional) - Last modified date, largest file, hidden file count, total items, and file type breakdown with badges
+3. **Favorites** - Quick-access links to user-specified files
+4. **Recent Files** - Most recently modified files sorted by date
+
+#### Info
+
+- **CORS**: 🟠 Proxied
+- **Auth**: 🟢 Required
+- **Price**: 🟢 Free
+- **Host**: Self-Hosted (see [Filebrowser Quantum](https://github.com/gtsteffaniak/filebrowser))
+- **Privacy**: _Self-Hosted_
+
+---
+
 ### Linkding
 
 Linkding is a self-hosted bookmarking service, which has a clean interface and is simple to set up. This lists the links, filterable by tags.
@@ -2659,6 +2733,40 @@ Linkding is a self-hosted bookmarking service, which has a clean interface and i
 
 - **CORS**: 🟢 Enabled
 - **Auth**: 🟢 Required
+- **Price**: 🟢 Free
+- **Host**: Self-Hosted (see [Uptime Kuma](https://github.com/louislam/uptime-kuma) )
+- **Privacy**: _See [Uptime Kuma](https://github.com/louislam/uptime-kuma)_
+
+---
+
+### Uptime Kuma Status Page
+
+[Uptime Kuma](https://github.com/louislam/uptime-kuma) is an easy-to-use self-hosted monitoring tool.
+
+#### Options
+
+| **Field**          | **Type** | **Required** | **Description**                                                                   |
+| ------------------ | -------- | ------------ | --------------------------------------------------------------------------------- |
+| **`host`**         | `string` | Required     | The URL of the Uptime Kuma instance                                               |
+| **`slug`**         | `string` | Required     | The slug of the status page                                                       |
+| **`monitorNames`** | `strins` | _Optional_   | Names of monitored services (in the same order as on the kuma uptime status page) |
+
+#### Example
+
+```yaml
+- type: uptime-kuma-status-page
+  options:
+    host: http://localhost:3001
+    slug: another-beautiful-status-page
+    monitorNames:
+      - "Name1"
+      - "Name2"
+```
+
+#### Info
+
+- **CORS**: 🟢 Enabled
+- **Auth**: 🟢 Not Needed
 - **Price**: 🟢 Free
 - **Host**: Self-Hosted (see [Uptime Kuma](https://github.com/louislam/uptime-kuma) )
 - **Privacy**: _See [Uptime Kuma](https://github.com/louislam/uptime-kuma)_
@@ -3229,7 +3337,7 @@ You can do this, by setting the environmental variable name as the value, instea
 
 The key can be named whatever you like, but it must start with `VUE_APP_` (to be picked up by Vue). If you need to update any of these values, a rebuild is required (this can be done under the Config menu in the UI, or by running `yarn build` then restarting the container).
 
-For more infomation about setting and managing your environmental variables, see [Management Docs --> Environmental Variables](/management.md#passing-in-environmental-variables).
+For more infomation about setting and managing your environmental variables, see [Management Docs --> Environmental Variables](/docs/management.md#passing-in-environmental-variables).
 
 For example:
 
@@ -3312,7 +3420,7 @@ Widgets use the following color variables, which can be overridden if desired:
 - `--widget-background-color` - Background color, defaults to `--background-darker`
 - `--widget-accent-color` - Accent color, defaults to `--background`
 
-For more info on how to apply custom variables, see the [Theming Docs](/theming.md#setting-custom-css-in-the-ui)
+For more info on how to apply custom variables, see the [Theming Docs](/docs/theming.md#setting-custom-css-in-the-ui)
 
 ---
 
@@ -3338,7 +3446,7 @@ Since most of the content displayed within widgets is fetched from an external A
 
 However, any hard-coded content is translatable, and all dates and times will display in your local format.
 
-For more info about multi-language support, see the [Internationalization Docs](/multi-language-support).
+For more info about multi-language support, see the [Internationalization Docs](/docs/multi-language-support).
 
 ---
 
@@ -3348,7 +3456,7 @@ Widgets can be opened in full-page view, by clicking the Arrow icon (top-right).
 
 You can reload the data of any widget, by clicking the Refresh Data icon (also in top-right). This will only affect the widget where the action was triggered from.
 
-All [config options](/configuring.md#section) that can be applied to sections, can also be applied to widget sections. For example, to make a widget section double the width, set `displayData.cols: 2` within the parent section. You can collapse a widget (by clicking the section title), and collapse state will be saved locally.
+All [config options](/docs/configuring.md#section) that can be applied to sections, can also be applied to widget sections. For example, to make a widget section double the width, set `displayData.cols: 2` within the parent section. You can collapse a widget (by clicking the section title), and collapse state will be saved locally.
 
 Widgets cannot currently be edited through the UI. This feature is in development, and will be released soon.  In the meantime, you can either use the JSON config editor, or use [VS Code Server](https://github.com/coder/code-server), or just SSH into your box and edit the conf.yml file directly.
 
@@ -3358,7 +3466,7 @@ Widgets cannot currently be edited through the UI. This feature is in developmen
 
 Widgets are built in a modular fashion, making it easy for anyone to create their own custom components.
 
-For a full tutorial on creating your own widget, you can follow [this guide](/development-guides.md/#building-a-widget), or take a look at [here](https://github.com/Lissy93/dashy/commit/3da76ce2999f57f76a97454c0276301e39957b8e) for a code example.
+For a full tutorial on creating your own widget, you can follow [this guide](/docs/development-guides.md/#building-a-widget), or take a look at [here](https://github.com/Lissy93/dashy/commit/3da76ce2999f57f76a97454c0276301e39957b8e) for a code example.
 
 Alternatively, for displaying simple data, you could also just use the either the [iframe](#iframe-widget), [embed](#html-embedded-widget), [data feed](#data-feed) or [API response](#api-response) widgets.
 
@@ -3378,13 +3486,13 @@ Please only request widgets for services that:
 
 You can suggest a widget [here](https://git.io/Jygo3), please star the repo before submitting a ticket. If you are a monthly GitHub sponsor, I will happily build out a custom widget for any service that meets the above criteria, usually within 2 weeks of initial request.
 
-For services that are not officially supported, it is likely still possible to display data using either the [iframe](#iframe-widget), [embed](#html-embedded-widget) or [API response](#api-response) widgets. For more advanced features, like charts and action buttons, you could also build your own widget, using [this tutorial](/development-guides.md/#building-a-widget), it's fairly straight forward, and you can use an [existing widget](https://github.com/Lissy93/dashy/tree/master/src/components/Widgets) (or [this example](https://git.io/JygKI)) as a template.
+For services that are not officially supported, it is likely still possible to display data using either the [iframe](#iframe-widget), [embed](#html-embedded-widget) or [API response](#api-response) widgets. For more advanced features, like charts and action buttons, you could also build your own widget, using [this tutorial](/docs/development-guides.md/#building-a-widget), it's fairly straight forward, and you can use an [existing widget](https://github.com/Lissy93/dashy/tree/master/src/components/Widgets) (or [this example](https://git.io/JygKI)) as a template.
 
 ---
 
 ### Troubleshooting Widget Errors
 
-If an error occurs when fetching or rendering results, you will see a short message in the UI. If that message doesn't adequately explain the problem, then you can [open the browser console](/troubleshooting.md#how-to-open-browser-console) to see more details.
+If an error occurs when fetching or rendering results, you will see a short message in the UI. If that message doesn't adequately explain the problem, then you can [open the browser console](/docs/troubleshooting.md#how-to-open-browser-console) to see more details.
 
 Before proceeding, ensure that if the widget requires auth your API is correct, and for custom widgets, double check that the URL and protocol is correct.
 
@@ -3429,4 +3537,4 @@ For testing purposes, you can use an addon, which will disable the CORS checks. 
 
 ### Raising an Issue
 
-If you need to submit a bug report for a failing widget, then please include the full console output (see [how](/troubleshooting.md#how-to-open-browser-console)) as well as the relevant parts of your config file. Before sending the request, ensure you've read the docs. If you're new to GitHub, an haven't previously contributed to the project, then please fist star the repo to avoid your ticket being closed by the anti-spam bot.
+If you need to submit a bug report for a failing widget, then please include the full console output (see [how](/docs/troubleshooting.md#how-to-open-browser-console)) as well as the relevant parts of your config file. Before sending the request, ensure you've read the docs. If you're new to GitHub, an haven't previously contributed to the project, then please fist star the repo to avoid your ticket being closed by the anti-spam bot.

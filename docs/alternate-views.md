@@ -14,10 +14,8 @@ You can switch between views using the dropdown in the top-right corner. Set you
 
 This is the main page that you will land on when you first launch the application. Here all of your sections (with items + widgets) are visible in a grid layout.
 
-<p align="center">
   <b>Example of Default View</b><br />
   <img width="800" src="https://i.ibb.co/L8YbNNc/dashy-demo2.gif" alt="Demo" />
-</p>
 
 ### Workspace
 
@@ -27,19 +25,15 @@ You can specify a default app to be opened when you land on the workspace, by se
 
 You can also opt to keep previously opened websites/ apps open in the background, by setting `appConfig.enableMultiTasking: true`. This comes at the cost of performance, but does mean that your session with each app is preserved, enabling you to quickly switch between them.
 
-<p align="center">
   <b>Example of Workspace View</b><br />
   <img alt="Workspace view demo" src="https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/workspace-demo.gif" width="800" />
-</p>
 
 ### Minimal View
 
 The minimal view aims to be super fast and simple, and can be used as a browser startpage. Items are grouped into a tab view, and the last opened tab will be remembered. Similar to the main view, you can search and launch items just by typing, and right-clicking will show more options (like open in modal, workspace or new tab).
 
-<p align="center">
   <b>Example of Minimal View</b><br />
   <img alt="Workspace view demo" src="https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/minimal-view-demo.gif" width="800" />
-</p>
 
 ## Opening Methods
 
@@ -55,10 +49,8 @@ You can also set a default opening method, which will be applied to all items th
 
 Even if the target is not set (or is set to `sametab`), you can still launch any given app in an alternative method. Either right-click to see all options, or use one of the keyboard shortcuts: Alt + Click will open the modal, and Ctrl + Click will open in a new tab.
 
-<p align="center">
   <img width="500" src="https://i.ibb.co/vmZdSRt/dashy-context-menu-2.png" />
-</p>
 
 If you don't like the custom context menu, it can be disabled by setting `appConfig.disableContextMenu: true`.
 
-If you get a 'Refused to Connect' error in the modal or workspace views, then the target app has it's X-Frame-Options HTTP set to block requests from embedded content. You can easily fix this by setting this header to ALLOW, for instructions on how to do so, see the [Troubleshooting Docs](/troubleshooting.md#refused-to-connect-in-modal-or-workspace-view).
+If you get a 'Refused to Connect' error in the modal or workspace views, then the target app has it's X-Frame-Options HTTP set to block requests from embedded content. You can easily fix this by setting this header to ALLOW, for instructions on how to do so, see the [Troubleshooting Docs](/docs/troubleshooting.md#refused-to-connect-in-modal-or-workspace-view).

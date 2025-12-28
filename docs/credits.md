@@ -47,4 +47,4 @@ At it's core, the application uses [**Vue.js**](https://github.com/vuejs/vue), a
 
 ## You
 
-Would you like to be listed here? Whatever your skill set, Dashy needs people like you to help support future development. Check out the [Contributing Page](/contributing) for ways that you can get involved. Huge thank you to everyone who has already contributed! 💖
+Would you like to be listed here? Whatever your skill set, Dashy needs people like you to help support future development. Check out the [Contributing Page](/docs/contributing) for ways that you can get involved. Huge thank you to everyone who has already contributed! 💖

@@ -36,11 +36,9 @@ You can also set `appConfig.theme` to pre-select a default theme, which will be 
 
 Themes can be modified either through the UI, using the color picker menu (to the right of the theme dropdown), or directly in the config file, under `appConfig.customColors`. Here you can specify the value for any of the [available CSS variables](#css-variables).
 
-<p align="center">
   <a href="https://i.ibb.co/cLDXj1R/dashy-theme-configurator.gif">
     <img alt="Example Themes" src="https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/theme-config-demo.gif" width="400" />
   </a>
-</p>
 
 By default, any color modifications made to the current theme through the UI will only be applied locally. If you need these settings to be set globally, then click the 'Export' button, to get the color codes and variable names, which can then be backed up, or saved in your config file.
 

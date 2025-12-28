@@ -18,7 +18,7 @@ All app configuration is specified in [`/user-data/conf.yml`](https://github.com
 - You may find it helpful to look at some sample config files to get you started, a collection of which can be found [here](https://gist.github.com/Lissy93/000f712a5ce98f212817d20bc16bab10)
 - You can check that your config file fits the schema, by running `yarn validate-config`
 - After modifying your config, the app needs to be recompiled, by running `yarn build`  - this happens automatically if you're using Docker
-- It is recommended to keep a backup of your config file. You can download it under Config menu, or use the [Cloud Backup](/backup-restore) feature.
+- It is recommended to keep a backup of your config file. You can download it under Config menu, or use the [Cloud Backup](/docs/backup-restore) feature.
 - You can make use of YAML features, like anchors, comments, multi-line strings, etc to reuse attributes and keep your config file readable
 - Once you have finished configuring your dashboard, you can choose to [disable UI config](#preventing-changes) if you wish
 - All fields are optional, unless otherwise stated.
@@ -95,7 +95,7 @@ The following file provides a reference of all supported configuration options.
 **`name`** | `string` |  Required | A unique name for that page
 **`path`** | `string` |  Required | The path (local or remote) to the config file to use.<br />For files located within `/user-data`, you only need to specify filename, for externally hosted files you must include the full URL
 
-For more info, see the[Multi-Page docs](/pages-and-sections.md#multi-page-support)
+For more info, see the[Multi-Page docs](/docs/pages-and-sections.md#multi-page-support)
 
 ****[⬆️ Back to Top](#)****
 
@@ -113,15 +113,15 @@ For more info, see the[Multi-Page docs](/pages-and-sections.md#multi-page-suppor
 **`enableFontAwesome`** | `boolean` | _Optional_ | If set to `true` font-awesome will be loaded, if set to `false` they will not be. if left blank font-awesome will be enabled only if required by 1 or more icons
 **`enableMaterialDesignIcons`** | `boolean` | _Optional_ | If set to `true` mdi icons will be loaded, if set to `false` they will not be. Where `true` is enabled, if left blank material design icons will be enabled only if required by 1 or more icons
 **`fontAwesomeKey`** | `string` | _Optional_ | If you have a font-awesome key, then you can use it here and make use of premium icons. It is a 10-digit alpha-numeric string from you're FA kit URL  (e.g. `13014ae648`)
-**`faviconApi`** | `enum` | _Optional_ | Only applicable if you are using favicons for item icons. Specifies which service to use to resolve favicons. Set to `local` to do this locally, without using an API. Services running locally will use this option always. Available options are: `local`, `faviconkit`, `iconhorse`, `google`, `clearbit`, `webmasterapi` and `allesedv`. Defaults to `faviconkit`. See [Icons](/icons.md#favicons) for more info
+**`faviconApi`** | `enum` | _Optional_ | Only applicable if you are using favicons for item icons. Specifies which service to use to resolve favicons. Set to `local` to do this locally, without using an API. Services running locally will use this option always. Available options are: `local`, `faviconkit`, `iconhorse`, `google`, `clearbit`, `webmasterapi` and `allesedv`. Defaults to `faviconkit`. See [Icons](/docs/icons.md#favicons) for more info
 **`auth`** | `object` | _Optional_ | All settings relating to user authentication. See [`auth`](#appconfigauth-optional)
-**`defaultIcon`** | `string` | _Optional_ | An icon to be applied to any items, which don't already have an icon set. See [Icon Docs](/icons.md#default-icon) for more info
+**`defaultIcon`** | `string` | _Optional_ | An icon to be applied to any items, which don't already have an icon set. See [Icon Docs](/docs/icons.md#default-icon) for more info
 **`layout`** | `enum` | _Optional_ | Layout for homepage, either `horizontal`, `vertical` or `auto`. Defaults to `auto`. This specifies the layout and direction of how sections are positioned on the home screen. This can also be modified and overridden from the UI.
 **`iconSize`** | `enum` | _Optional_ | The size of link items / icons. Can be either `small`, `medium,` or `large`. Defaults to `medium`. This can also be set directly from the UI.
 **`colCount`** | `number` | _Optional_ | The number of columns of sections displayed on the homepage, using the default view. Should be in integer between `1` and `8`. Note that by default this is applied responsively, based on current screen size, and specifying a value here will override this behavior, which may not be desirable.
 **`theme`** | `string` | _Optional_ | The default theme for first load (you can change this later from the UI)
 **`cssThemes`** | `string[]` | _Optional_ | An array of custom theme names which can be used in the theme switcher dropdown
-**`customColors`** | `object`| _Optional_ | Enables you to apply a custom color palette to any given theme. Use the theme name (lowercase) as the key, for an object including key-value-pairs, with the color variable name as keys, and 6-digit hex code as value. See [Theming](/theming.md#modifying-theme-colors) for more info
+**`customColors`** | `object`| _Optional_ | Enables you to apply a custom color palette to any given theme. Use the theme name (lowercase) as the key, for an object including key-value-pairs, with the color variable name as keys, and 6-digit hex code as value. See [Theming](/docs/theming.md#modifying-theme-colors) for more info
 **`externalStyleSheet`** | `string`  or `string[]` | _Optional_ | Either a URL to an external stylesheet or an array or URLs, which can be applied as themes within the UI
 **`customCss`** | `string` | _Optional_ | Raw CSS that will be applied to the page. This can also be set from the UI. Please minify it first.
 **`hideComponents`** | `object` | _Optional_ | A list of key page components (header, footer, search, settings, etc) that are present by default, but can be removed using this option. See [`appConfig.hideComponents`](#appconfighideComponents-optional)
@@ -151,11 +151,11 @@ For more info, see the[Multi-Page docs](/pages-and-sections.md#multi-page-suppor
 
 > [!WARNING]
 > Built-in auth should **not be used** for security-critical applications, or if your Dashy instance is publicly accessible.
-> For these, it is recommended to use an [alternate authentication method](/authentication.md#alternative-authentication-methods).
+> For these, it is recommended to use an [alternate authentication method](/docs/authentication.md#alternative-authentication-methods).
 
 **Field** | **Type** | **Required**| **Description**
 --- | --- | --- | ---
-**`users`** | `array` | _Optional_ | An array of objects containing usernames and hashed passwords. If this is not provided, then authentication will be off by default, and you will not need any credentials to access the app. See [`appConfig.auth.users`](#appconfigauthusers-optional). <br />**Note** this method of authentication is handled on the client side, so for security critical situations, it is recommended to use an [alternate authentication method](/authentication.md#alternative-authentication-methods).
+**`users`** | `array` | _Optional_ | An array of objects containing usernames and hashed passwords. If this is not provided, then authentication will be off by default, and you will not need any credentials to access the app. See [`appConfig.auth.users`](#appconfigauthusers-optional). <br />**Note** this method of authentication is handled on the client side, so for security critical situations, it is recommended to use an [alternate authentication method](/docs/authentication.md#alternative-authentication-methods).
 **`enableKeycloak`** | `boolean` | _Optional_ | If set to `true`, then authentication using Keycloak will be enabled. Note that you need to have an instance running, and have also configured `auth.keycloak`. Defaults to `false`
 **`keycloak`** | `object` | _Optional_ | Config options to point Dashy to your Keycloak server. Requires `enableKeycloak: true`. See  [`auth.keycloak`](#appconfigauthkeycloak-optional) for more info
 **`enableHeaderAuth`** | `boolean` | _Optional_ | If set to `true`, then authentication using HeaderAuth will be enabled. Note that you need to have your web server/reverse proxy running, and have also configured `auth.headerAuth`. Defaults to `false`
@@ -164,7 +164,7 @@ For more info, see the[Multi-Page docs](/pages-and-sections.md#multi-page-suppor
 **`oidc`** | `object` | _Optional_ | Config options to point Dash to your OIDC configuration. Request `enableOidc: true`. See [`auth.oidc`](#appconfigauthoidc-optional) for more info
 **`enableGuestAccess`** | `boolean` | _Optional_ | When set to `true`, an unauthenticated user will be able to access the dashboard, with read-only access, without having to login. Requires `auth.users` to be configured. Defaults to `false`.
 
-For more info, see the **[Authentication Docs](/authentication)**
+For more info, see the **[Authentication Docs](/docs/authentication)**
 
 ****[⬆️ Back to Top](#)****
 
@@ -287,10 +287,10 @@ For more info, see the **[Authentication Docs](/authentication)**
 
 **Field** | **Type** | **Required**| **Description**
 --- | --- | --- | ---
-**`type`** | `string` | Required | The widget type. See [Widget Docs](/widgets) for full list of supported widgets
-**`options`** | `object` | _Optional_ | Some widgets accept either optional or required additional options. Again, see the [Widget Docs](/widgets) for full list of options
-**`updateInterval`** | `number` | _Optional_ | You can keep a widget constantly updated by specifying an update interval, in seconds. See [Continuous Updates Docs](/widgets.md#continuous-updates) for more info
-**`useProxy`** | `boolean` | _Optional_ | Some widgets make API requests to services that are not CORS-enabled. For these instances, you will need to route requests through a proxy, Dashy has a built in CORS-proxy, which you can use by setting this option to `true`. Defaults to `false`. See the [Proxying Requests Docs](/widgets.md#proxying-requests) for more info
+**`type`** | `string` | Required | The widget type. See [Widget Docs](/docs/widgets) for full list of supported widgets
+**`options`** | `object` | _Optional_ | Some widgets accept either optional or required additional options. Again, see the [Widget Docs](/docs/widgets) for full list of options
+**`updateInterval`** | `number` | _Optional_ | You can keep a widget constantly updated by specifying an update interval, in seconds. See [Continuous Updates Docs](/docs/widgets.md#continuous-updates) for more info
+**`useProxy`** | `boolean` | _Optional_ | Some widgets make API requests to services that are not CORS-enabled. For these instances, you will need to route requests through a proxy, Dashy has a built in CORS-proxy, which you can use by setting this option to `true`. Defaults to `false`. See the [Proxying Requests Docs](/docs/widgets.md#proxying-requests) for more info
 **`timeout`** | `number` | _Optional_ | Request timeout in milliseconds, defaults to ½ a second (`500`)
 **`ignoreErrors`** | `boolean` | _Optional_ | Prevent an error message being displayed, if a network request or something else fails. Useful for false-positives
 **`label`** | `string` | _Optional_ | Add custom label to a given widget. Useful for identification, if there are multiple of the same type of widget in a single section
@@ -324,7 +324,7 @@ For more info, see the **[Authentication Docs](/authentication)**
 
 **Field** | **Type** | **Required**| **Description**
 --- | --- | --- | ---
-**`icon`** | `string` | _Optional_ | The icon for a given item or section. <br />See [Icon Docs](/icons) for all available supported icon types, including: auto-fetched favicons, generative icons, emoji icons, home-lab service logos, font-awesome, simple-icons, material icons, selfh.st icons, and icons specified by URL
+**`icon`** | `string` | _Optional_ | The icon for a given item or section. <br />See [Icon Docs](/docs/icons) for all available supported icon types, including: auto-fetched favicons, generative icons, emoji icons, home-lab service logos, font-awesome, simple-icons, material icons, selfh.st icons, and icons specified by URL
 
 ****[⬆️ Back to Top](#)****
 
@@ -345,7 +345,6 @@ For more info, see the **[Authentication Docs](/authentication)**
 
 Config can be modified directly through the UI, and then written to disk, or applied locally. This can be done wither with the raw config editor (introduced in V 0.6.5 / [#3](https://github.com/Lissy93/dashy/pull/3)), or the interactive editor (introduced in V 1.8.9 / [#298](https://github.com/Lissy93/dashy/pull/298)).
 
-<p align="center">
   <a href="https://ibb.co/CzkyMNb">
     <b>Interactive Editor</b><br />
     <img alt="Interactive Editor demo" src="https://user-images.githubusercontent.com/1862727/139543020-b0576d28-0830-476f-afc8-a815d4de6def.gif" width="600" />
@@ -355,7 +354,6 @@ Config can be modified directly through the UI, and then written to disk, or app
   <b>JSON Editor</b><br />
   <img alt="Config Editor demo" src="https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/config-editor-demo.gif" width="600" />
   </a>
-</p>
 
 ### About YAML
 

@@ -26,7 +26,7 @@ docker run -d \
   lissy93/dashy:latest
 ```
 
-Either replace the -v path to point to your config file, or leave it out. For a full list of available options, then see [Dashy with Docker](/docs/deployment#deploy-with-docker) Docs. If you'd prefer to use Docker Compose, then see [Dashy with Docker Compose](/docs/deployment#using-docker-compose) Docs. Alternate registries, architectures and pinned versions are also supported.
+Either replace the -v path to point to your config file, or leave it out. For a full list of available options, then see [Dashy with Docker](/docs/deployment.md#deploy-with-docker) Docs. If you'd prefer to use Docker Compose, then see [Dashy with Docker Compose](/docs/deployment.md#using-docker-compose) Docs. Alternate registries, architectures and pinned versions are also supported.
 
 Your dashboard should now be up and running at `http://localhost:8080` (or your servers IP address/ domain, and the port that you chose). The first time you build, it may take a few minutes.
 
@@ -43,7 +43,7 @@ For example, if you had `user-data/favicon.ico` this would be accessible at `htt
 
 Example Files in `user-data`:
 - `conf.yml` - This is the only file that is compulsory, it's your main Dashy config
-- `**.yml` - Include more config files, if you'd like to have multiple pages, see [Multi-page support](/pages-and-sections.md#multi-page-support) for docs
+- `**.yml` - Include more config files, if you'd like to have multiple pages, see [Multi-page support](/docs/pages-and-sections.md#multi-page-support) for docs
 - `favicon.ico` - The default favicon, shown in the browser's tab title
 - `initialization.html` - Static HTML page displayed before the app has finished compiling, see [`public/initialization.html`](https://github.com/Lissy93/dashy/blob/master/public/initialization.html)
 - `robots.txt` - Search engine crawl rules, override this if you want your dashboard to be indexable
@@ -51,7 +51,7 @@ Example Files in `user-data`:
 - `index.html` - The main index page which initializes the client-side app, copy it from [`/public/index.html`](https://github.com/Lissy93/dashy/blob/master/public/index.html)
 - `**.html` - Write your own HTML pages, and access them at `http://my-dashy-instance.local/my-page.html`
 - `fonts/` - Custom fonts (be sure to include the ones already in [`public/fonts`](https://github.com/Lissy93/dashy/tree/master/public/fonts)
-- `item-icons/` - To use your own icons for items on your dashboard, see [Icons --> Local Icons](/icons.md#local-icons)
+- `item-icons/` - To use your own icons for items on your dashboard, see [Icons --> Local Icons](/docs/icons.md#local-icons)
 - `web-icons/` - Override Dashy logo
 - `widget-resources/` - Fonts, icons and assets for custom widgets
 
@@ -63,10 +63,10 @@ Now that you've got Dashy running, you are going to want to set it up with your 
 Config is written in [YAML Format](https://yaml.org/), and saved in [`/user-data/conf.yml`](https://github.com/Lissy93/dashy/blob/master/user-data/conf.yml).
 The format on the config file is pretty straight forward. There are four root attributes:
 
-- [`pageInfo`](/docs/configuring#pageinfo) - Dashboard meta data, like title, description, nav bar links and footer text
-- [`appConfig`](/docs/configuring#appconfig-optional) - Dashboard settings, like themes, authentication, language and customization
-- [`sections`](/docs/configuring#section) - An array of sections, each including an array of items
-- [`pages`](/docs/configuring#pages-optional) - Have multiples pages in your dashboard
+- [`pageInfo`](/docs/configuring.md#pageinfo) - Dashboard meta data, like title, description, nav bar links and footer text
+- [`appConfig`](/docs/configuring.md#appconfig-optional) - Dashboard settings, like themes, authentication, language and customization
+- [`sections`](/docs/configuring.md#section) - An array of sections, each including an array of items
+- [`pages`](/docs/configuring.md#pages-optional) - Have multiples pages in your dashboard
 
 You can view a full list of all available config options in the [Configuring Docs](/docs/configuring).
 
@@ -112,14 +112,14 @@ Once you've got Dashy setup, you'll want to ensure the container is properly hea
 
 You might also want to check out the docs for specific features you'd like to use:
 
-- [Authentication](/authentication) - Setting up authentication to protect your dashboard
-- [Alternate Views](/alternate-views) - Using the startpage and workspace view
-- [Backup & Restore](/backup-restore) - Guide to Dashy's cloud sync feature
-- [Icons](/icons) - Outline of all available icon types for sections and items
-- [Localisation](/multi-language-support) - How to change language, or add your own
-- [Status Indicators](/status-indicators) - Using Dashy to monitor uptime and status of your apps
-- [Search & Shortcuts](/searching) - Using instant filter, web search and custom hotkeys
-- [Theming](/theming) - Complete guide to applying, writing and modifying themes and styles
+- [Authentication](/docs/authentication) - Setting up authentication to protect your dashboard
+- [Alternate Views](/docs/alternate-views) - Using the startpage and workspace view
+- [Backup & Restore](/docs/backup-restore) - Guide to Dashy's cloud sync feature
+- [Icons](/docs/icons) - Outline of all available icon types for sections and items
+- [Localisation](/docs/multi-language-support) - How to change language, or add your own
+- [Status Indicators](/docs/status-indicators) - Using Dashy to monitor uptime and status of your apps
+- [Search & Shortcuts](/docs/searching) - Using instant filter, web search and custom hotkeys
+- [Theming](/docs/theming) - Complete guide to applying, writing and modifying themes and styles
 
 ---
 
@@ -150,7 +150,7 @@ Then edit `./user-data/conf.yml`
 
 ## Alternative Deployment Method 2 - Netlify
 
-Don't have a server? No problem! You can run Dashy for free on Netlify (as well as many [other cloud providers](/deployment.md#deploy-to-cloud-service)). All you need it a GitHub account.
+Don't have a server? No problem! You can run Dashy for free on Netlify (as well as many [other cloud providers](/docs/deployment.md#deploy-to-cloud-service)). All you need it a GitHub account.
 
 1. Fork Dashy's repository on GitHub
 2. [Log in](app.netlify.com/login/) to Netlify with GitHub

@@ -47,7 +47,7 @@ In Dashy, commonly configured resources include:
 
 If you're running an app in Docker, then commands will need to be passed to the container to be executed. This can be done by preceding each command with `docker exec -it [container-id]`, where container ID can be found by running `docker ps`. For example `docker exec -it 26c156c467b4 yarn build`. You can also enter the container, with `docker exec -it [container-id] /bin/ash`, and navigate around it with normal Linux commands.
 
-Dashy has several commands that can be used for various tasks, you can find a list of these either in the [Developing Docs](/developing.md#project-commands), or by looking at the [`package.json`](https://github.com/Lissy93/dashy/blob/master/package.json#L5). These can be used by running `yarn [command-name]`.
+Dashy has several commands that can be used for various tasks, you can find a list of these either in the [Developing Docs](/docs/developing.md#project-commands), or by looking at the [`package.json`](https://github.com/Lissy93/dashy/blob/master/package.json#L5). These can be used by running `yarn [command-name]`.
 
 ****[⬆️ Back to Top](#)****
 
@@ -201,7 +201,7 @@ All configuration and dashboard settings are stored in your `user-data/conf.yml`
 
 Since Dashy is open source, there shouldn't be any need to backup the main container.
 
-Dashy also has a built-in cloud backup feature, which is free for personal users, and will let you make and restore fully encrypted backups of your config directly through the UI. To learn more, see the [Cloud Backup Docs](/backup-restore)
+Dashy also has a built-in cloud backup feature, which is free for personal users, and will let you make and restore fully encrypted backups of your config directly through the UI. To learn more, see the [Cloud Backup Docs](/docs/backup-restore)
 
 ****[⬆️ Back to Top](#)****
 
@@ -256,7 +256,7 @@ Once everything is setup, you can verify your site is secured using a tool like 
 
 ## Authentication
 
-Dashy natively supports secure authentication using KeyCloak. There is also a Simple Auth feature that doesn't require any additional setup. Usage instructions for both, as well as alternative auth methods, has now moved to the **[Authentication Docs](/authentication)** page.
+Dashy natively supports secure authentication using KeyCloak. There is also a Simple Auth feature that doesn't require any additional setup. Usage instructions for both, as well as alternative auth methods, has now moved to the **[Authentication Docs](/docs/authentication)** page.
 
 ****[⬆️ Back to Top](#)****
 
@@ -298,7 +298,7 @@ services:
 
 ## Passing in Environmental Variables
 
-With Docker, you can define environmental variables under the `environment` section of your Docker compose file. Environmental variables are used to configure high-level settings, usually before the config file has been read. For a list of all supported env vars in Dashy, see [the developing docs](/developing.md#environmental-variables), or the default [`.env`](https://github.com/Lissy93/dashy/blob/master/.env) file.
+With Docker, you can define environmental variables under the `environment` section of your Docker compose file. Environmental variables are used to configure high-level settings, usually before the config file has been read. For a list of all supported env vars in Dashy, see [the developing docs](/docs/developing.md#environmental-variables), or the default [`.env`](https://github.com/Lissy93/dashy/blob/master/.env) file.
 
 A common use case, is to run Dashy under a sub-page, instead of at the root of a URL (e.g. `https://my-homelab.local/dashy` instead of `https://dashy.my-homelab.local`). In this use-case, you'd specify the `BASE_URL` variable in your compose file.
 
@@ -432,25 +432,25 @@ Using a VPN is one of the easiest ways to provide secure, full access to your lo
 #### **Example Server Config**
 
 ```ini
-## Server file
+# Server file
 [Interface]
-## Which networks does my interface belong to? Notice: /24 and /64
+# Which networks does my interface belong to? Notice: /24 and /64
 Address = 10.5.0.1/24, 2001:470:xxxx:xxxx::1/64
 PrivateKey = xxx
 ListenPort = 51820
 
-## Peer 1
+# Peer 1
 [Peer]
 PublicKey = xxx
-## Which source IPs can I expect from that peer? Notice: /32 and /128
+# Which source IPs can I expect from that peer? Notice: /32 and /128
 AllowedIps = 10.5.0.35/32, 2001:470:xxxx:xxxx::746f:786f/128
 
-## Peer 2
+# Peer 2
 [Peer]
 PublicKey = xxx
-## Which source IPs can I expect from that peer? This one has a LAN which can
-## access hosts/jails without NAT.
-## Peer 2 has a single IP address inside the VPN: it's 10.5.0.25/32
+# Which source IPs can I expect from that peer? This one has a LAN which can
+# access hosts/jails without NAT.
+# Peer 2 has a single IP address inside the VPN: it's 10.5.0.25/32
 AllowedIps = 10.5.0.25/32,10.21.10.0/24,10.21.20.0/24,10.21.30.0/24,10.31.0.0/24,2001:470:xxxx:xxxx::ca:571e/128
 ```
 
@@ -458,21 +458,21 @@ AllowedIps = 10.5.0.25/32,10.21.10.0/24,10.21.20.0/24,10.21.30.0/24,10.31.0.0/24
 
 ```ini
 [Interface]
-## Which networks does my interface belong to? Notice: /24 and /64
+# Which networks does my interface belong to? Notice: /24 and /64
 Address = 10.5.0.35/24, 2001:470:xxxx:xxxx::746f:786f/64
 PrivateKey = xxx
 
-## Server
+# Server
 [Peer]
 PublicKey = xxx
-## I want to route everything through the server, both IPv4 and IPv6. All IPs are
-## thus available through the Server, and I can expect packets from any IP to
-## come from that peer.
+# I want to route everything through the server, both IPv4 and IPv6. All IPs are
+# thus available through the Server, and I can expect packets from any IP to
+# come from that peer.
 AllowedIPs = 0.0.0.0/0, ::0/0
-## Where is the server on the internet? This is a public address. The port
-## (:51820) is the same as ListenPort in the [Interface] of the Server file above
+# Where is the server on the internet? This is a public address. The port
+# (:51820) is the same as ListenPort in the [Interface] of the Server file above
 Endpoint = 1.2.3.4:51820
-## Usually, clients are behind NAT. to keep the connection running, keep alive.
+# Usually, clients are behind NAT. to keep the connection running, keep alive.
 PersistentKeepalive = 15
 ```
 
@@ -515,7 +515,7 @@ To get started, [Download](https://ngrok.com/download) and install Ngrok for you
 
 Some Ngrok features require you to be authenticated, you can [create a free account](https://dashboard.ngrok.com/signup) and generate a token in [your dashboard](https://dashboard.ngrok.com/auth/your-authtoken), then run `ngrok authtoken [token]`.
 
-It's recommended to use authentication for any publicly accessible service. Dashy has an [Auth](/authentication) feature built in, but an even easier method it to use the [`-auth`](https://ngrok.com/docs#http-auth) switch. E.g. `ngrok http -auth="username:password123" 8080`
+It's recommended to use authentication for any publicly accessible service. Dashy has an [Auth](/docs/authentication) feature built in, but an even easier method it to use the [`-auth`](https://ngrok.com/docs#http-auth) switch. E.g. `ngrok http -auth="username:password123" 8080`
 
 By default, your web app is assigned a randomly generated ngrok domain, but you can also use your own custom domain. Under the [Domains Tab](https://dashboard.ngrok.com/endpoints/domains) of your Ngrok dashboard, add your domain, and follow the CNAME instructions. You can now use your domain, with the [`-hostname`](https://ngrok.com/docs#http-custom-domains) switch, e.g. `ngrok http -region=us -hostname=dashy.example.com 8080`. If you don't have your own domain name, you can instead use a custom sub-domain (e.g. `alicia-dashy.ngrok.io`), using the [`-subdomain`](https://ngrok.com/docs#custom-subdomain-names) switch.
 
@@ -888,7 +888,7 @@ Create a file names `firebase.json`, and populate it with something similar to:
 
 If you'd like to make any code changes to the app, and deploy your modified version, this section briefly explains how.
 
-The first step is to fork the project on GitHub, and clone it to your local system. Next, install the dependencies (`yarn`), and start the development server (`yarn dev`) and visit `localhost:8080` in your browser. You can then make changes to the codebase, and see the live app update in real-time. Once you've finished, running `yarn build` will build the app for production, and output the assets into `./dist` which can then be deployed using a web server, CDN or the built-in Node server with `yarn start`. For more info on all of this, take a look at the [Developing Docs](/developing). To build your own Docker container from the modified app, see [Building your Own Container](#building-your-own-container)
+The first step is to fork the project on GitHub, and clone it to your local system. Next, install the dependencies (`yarn`), and start the development server (`yarn dev`) and visit `localhost:8080` in your browser. You can then make changes to the codebase, and see the live app update in real-time. Once you've finished, running `yarn build` will build the app for production, and output the assets into `./dist` which can then be deployed using a web server, CDN or the built-in Node server with `yarn start`. For more info on all of this, take a look at the [Developing Docs](/docs/developing). To build your own Docker container from the modified app, see [Building your Own Container](#building-your-own-container)
 
 ****[⬆️ Back to Top](#)****
 

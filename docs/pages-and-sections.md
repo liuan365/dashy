@@ -55,11 +55,9 @@ The config file must, of course be accessible from within Dashy. If your config 
 
 The following example shows creating a config, publishing it as a [Gist](https://gist.github.com/), copying the URL to the raw file, and using it within your dashboard.
 
-<p align="center">
   <img width="700" alt="Public config in a gist demo"
     src="https://i.ibb.co/55jm3LG/how-to-use-remote-config-sub-page.gif"
   />
-</p>
 
 ### Restrictions
 

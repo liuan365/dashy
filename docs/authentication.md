@@ -115,7 +115,7 @@ pages:
 
 Any user who is not an admin (with `type: admin`) will not be able to write changes to disk.
 
-You can also prevent any user from writing changes to disk, using `preventWriteToDisk`. Or prevent any changes from being saved locally in browser storage, using `preventLocalSave`. Both properties can be found under [`appConfig`](/configuring.md#appconfig-optional).
+You can also prevent any user from writing changes to disk, using `preventWriteToDisk`. Or prevent any changes from being saved locally in browser storage, using `preventLocalSave`. Both properties can be found under [`appConfig`](/docs/configuring.md#appconfig-optional).
 
 To disable all UI config features, including View Config, set `disableConfiguration`. Alternatively you can disable UI config features for all non admin users by setting `disableConfigurationForNonAdmin` to true.
 
@@ -246,7 +246,7 @@ sections:
             groups: ['DevelopmentTeam']
 ```
 
-Depending on how you're hosting Dashy and Keycloak, you may also need to set some HTTP headers, to prevent a CORS error. This would typically be the `Access-Control-Allow-Origin [URL-of Dashy]` on your Keycloak instance. See the [Setting Headers](/docs/management#setting-headers) guide in the management docs for more info.
+Depending on how you're hosting Dashy and Keycloak, you may also need to set some HTTP headers, to prevent a CORS error. This would typically be the `Access-Control-Allow-Origin [URL-of Dashy]` on your Keycloak instance. See the [Setting Headers](/docs/management.md#setting-headers) guide in the management docs for more info.
 
 Your app is now secured :) When you load Dashy, it will redirect to your Keycloak login page, and any user without valid credentials will be prevented from accessing your dashboard.
 

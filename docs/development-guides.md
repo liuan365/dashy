@@ -34,15 +34,15 @@ html[data-theme='tiger'] {
 }
 ```
 
-Then you can go ahead and write your own custom CSS. Although all CSS is supported here, the best way to define your theme is by setting the CSS variables. You can find a [list of all CSS variables, here](/docs/theming#css-variables).
+Then you can go ahead and write your own custom CSS. Although all CSS is supported here, the best way to define your theme is by setting the CSS variables. You can find a [list of all CSS variables, here](/docs/theming.md#css-variables).
 
-For a full guide on styling, see [Theming Docs](./theming).
+For a full guide on styling, see [Theming Docs](/docs/theming).
 
-Note that if your theme is just for yourself, and you're not submitting a PR, then you can instead just pass it under `appConfig.cssThemes` inside your config file. And then put your theme in your own stylesheet, and pass it into the Docker container - [see how](/docs/theming#adding-your-own-theme).
+Note that if your theme is just for yourself, and you're not submitting a PR, then you can instead just pass it under `appConfig.cssThemes` inside your config file. And then put your theme in your own stylesheet, and pass it into the Docker container - [see how](/docs/theming.md#adding-your-own-theme).
 
 ## Writing Translations
 
-For full docs about Dashy's multi-language support, see [Multi-Language Support](./multi-language-support)
+For full docs about Dashy's multi-language support, see [Multi-Language Support](/docs/multi-language-support)
 
 Dashy is using [vue-i18n](https://vue-i18n.intlify.dev/guide/) to manage multi-language support.
 
@@ -104,7 +104,7 @@ If you are not comfortable with making pull requests, or do not want to modify t
 
 This section is for, adding a new setting to the config file.
 
-All of the users config is specified in `./user-data/conf.yml` - see [Configuring Docs](./configuring) for info.
+All of the users config is specified in `./user-data/conf.yml` - see [Configuring Docs](/docs/configuring) for info.
 It's important to first ensure that there isn't a similar option already available, the new option is definitely necessary, and most importantly that it is fully backwards compatible.
 
 Next choose the appropriate section to place it under
@@ -151,14 +151,14 @@ or
 }
 ```
 
-Finally, add your new property to the [`configuring.md`](./configuring) API docs. Put it under the relevant section, and be sure to include field name, data type, a description and mention that it is optional.  If your new feature needs more explanation, then you can also document it under the relevant section elsewhere in the documentation.
+Finally, add your new property to the [`configuring.md`](/docs/configuring) API docs. Put it under the relevant section, and be sure to include field name, data type, a description and mention that it is optional.  If your new feature needs more explanation, then you can also document it under the relevant section elsewhere in the documentation.
 
 Checklist:
 
 - [ ] Ensure the new attribute is actually necessary, and nothing similar already exists
 - [ ] Update the [Schema](https://github.com/Lissy93/dashy/blob/master/src/utils/ConfigSchema.js) with the parameters for your new option
 - [ ] If required, set a default or fallback value (usually in [`defaults.js`](https://github.com/Lissy93/dashy/blob/master/src/utils/defaults.js))
-- [ ] Document the new value in [`configuring.md`](./configuring), and if required under the relevant section in the docs
+- [ ] Document the new value in [`configuring.md`](/docs/configuring), and if required under the relevant section in the docs
 - [ ] Ensure your changes are backwards compatible, and that nothing breaks if the attribute isn't specified
 
 ---

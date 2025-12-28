@@ -2,7 +2,7 @@
 
 First off, thank you for considering contributing towards Dashy! 🙌
 There are several ways that you can help out, and any contributions, however small will always be very much appreciated.
-You will be appropriately credited in the readme - huge thank you to [everyone who has helped](/credits) so far 💞
+You will be appropriately credited in the readme - huge thank you to [everyone who has helped](/docs/credits) so far 💞
 
 ## Take a 2-minute survey
 
@@ -12,7 +12,7 @@ Help improve Dashy by taking a very short, 6-question survey. This will give me 
 
 ## Share your dashboard
 
-Dashy now has a [Showcase](/docs/showcase#dashy-showcase-) where you can show off a screenshot of your dashboard, and get inspiration from other users (and I really love seeing how people are using Dashy). To [submit your dashboard](/docs/showcase#submitting-your-dashboard), either open a PR or raise an issue.
+Dashy now has a [Showcase](/docs/showcase.md#dashy-showcase-) where you can show off a screenshot of your dashboard, and get inspiration from other users (and I really love seeing how people are using Dashy). To [submit your dashboard](/docs/showcase.md#submitting-your-dashboard), either open a PR or raise an issue.
 
 [![Add your Dashboard to the Showcase](https://img.shields.io/badge/Add_your_Dashboard-Showcase-%238616ee?style=for-the-badge&logo=feathub&logoColor=8616ee)](https://github.com/Lissy93/dashy/issues/new?assignees=&labels=%F0%9F%92%AF+Showcase&template=showcase-addition.yml&title=%5BSHOWCASE%5D+%3Ctitle%3E)
 
@@ -35,8 +35,6 @@ Sponsoring will give you several perks - for $1 / £0.75 per month, you'll get a
 - **LTC**: `MAuck6Ea1qaNihwKfXutkR1R6BorMth86H`
 - **ZEC**: `t1bw1SefijsXRDQVxC9w64XsRK8hBhtQohQ`
 
-  
-
 ## Enable Anonymous Bug Reports
 
 Bug reports helps me to discover bugs I was unaware of, and then fix them, in order to make Dashy more reliable long term. This is a simple, yet really helpful step you can take to help improve Dashy. [Sentry](https://github.com/getsentry/sentry) is an open source error tracking and performance monitoring tool, which enables the identification any errors which occur in the production app (only if you enable it).
@@ -56,7 +54,7 @@ If you speak another language, then adding translations will help make Dashy ava
 
 ## Submit a PR
 
-Contributing to the code or docs is super helpful. You can fix a bug, add a new feature or improve an existing one. If you've built your own custom widget, theme or view, consider sharing it in a PR. I've written [several guides](/development-guides) to help you get started, and the steps for setting up the development environment are outlined in the [Development Docs](/developing). Feel free to ask if you have any questions.
+Contributing to the code or docs is super helpful. You can fix a bug, add a new feature or improve an existing one. If you've built your own custom widget, theme or view, consider sharing it in a PR. I've written [several guides](/docs/development-guides) to help you get started, and the steps for setting up the development environment are outlined in the [Development Docs](/docs/developing). Feel free to ask if you have any questions.
 
 ## Improve the Docs
 
@@ -124,10 +122,10 @@ If you like, you could also consider [subscribing to my mailing list](https://no
 
 ### Contributors
 
-For a full list of Dashy's contributors, see the [Credits Page](/credits)
+For a full list of Dashy's contributors, see the [Credits Page](/docs/credits)
 
-](/docs/credits)
+[![Auto-generated contributors](https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/CONTRIBUTORS.svg)](/docs/credits)
 
-
+### Star-Gazers Over Time
 
 ](https://seladb.github.io/StarTrack-js/#/preload?r=Lissy93,dashy)

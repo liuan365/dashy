@@ -15,9 +15,7 @@ Both sections and items can have an icon, which is specified using the `icon` at
 - [Using a Default Icon](#default-icon)
 - [No Icon](#no-icon)
 
-<p align="center">
   <img width="500" src="https://i.ibb.co/GTVmZnc/dashy-example-icons.png" />
-</p>
 
 ---
 
@@ -25,9 +23,7 @@ Both sections and items can have an icon, which is specified using the `icon` at
 
 Dashy can auto-fetch an icon for a given service, using it's favicon. Just set `icon: favicon` to use this feature.
 
-<p align="center">
   <img width="580" src="https://i.ibb.co/k6wyhnB/favicon-icons.png" />
-</p>
 
 Since different websites host their favicons at different paths, for the best results Dashy can use an API to resolve a websites icon.
 
@@ -56,9 +52,7 @@ You can use any [Font Awesome Icon](https://fontawesome.com/icons) simply by spe
 
 Font-Awesome has a wide variety of free icons, but you can also use their pro icons if you have a membership. To do so, you need to specify your license key under: `appConfig.fontAwesomeKey`. This is usually a 10-digit string, for example `13014ae648`.
 
-<p align="center">
   <img width="500" src="https://i.ibb.co/tMtwNYZ/fontawesome-icons3.png" />
-</p>
 
 ---
 
@@ -66,9 +60,7 @@ Font-Awesome has a wide variety of free icons, but you can also use their pro ic
 
 [SimpleIcons.org](https://simpleicons.org/) is a collection of 2000+ high quality, free and open source brand and logo SVG icons. Usage of which is very similar to font-awesome icons. First find the glyph you want to use on the [website](https://simpleicons.org/), then just set your icon to the simple icon slug, prefixed with `si-`.
 
-<p align="center">
   <img width="580" src="https://i.ibb.co/MVhkXfC/simple-icons-example.png" />
-</p>
 
 For example:
 
@@ -92,9 +84,7 @@ sections:
 
 To uses a unique and programmatically generated icon for a given service just set `icon: generative`. This is particularly useful when you have a lot of similar services with a different IP or port, and no specific icon. These icons are generated with [DiceBear](https://api.dicebear.com/) (or [Evatar](https://evatar.io/) for fallback), and use a hash of the services domain/ ip for entropy, so each domain will have a unique icon.
 
-<p align="center">
   <img width="500" src="https://i.ibb.co/b2pC2CL/generative-icons-2.png" />
-</p>
 
 ---
 
@@ -102,9 +92,7 @@ To uses a unique and programmatically generated icon for a given service just se
 
 You can use almost any emoji as an icon for items or sections. You can specify the emoji either by pasting it directly, using it's unicode ( e.g. `'U+1F680'`) or shortcode (e.g. `':rocket:'`). You can find these codes for any emoji using [Emojipedia](https://emojipedia.org/) (near the bottom of emoji each page), or for a quick reference to emoji shortcodes, check out [emojis.ninja](https://emojis.ninja/) by @nomanoff.
 
-<p align="center">
   <img width="580" src="https://i.ibb.co/YLwgTf9/emoji-icons-1.png" />
-</p>
 
 For example, these will all render the same rocket (🚀) emoji: `icon: ':rocket:'` or `icon: 'U+1F680'` or `icon: 🚀`
 
@@ -116,9 +104,7 @@ The [selfh.st](https://selfh.st/) project provides a set of icons, originally fo
 
 Note: These icons are fetched from the jsdelivr CDN, so if you require offline access, the [Local Icons](#local-icons) method may be a better option for you.
 
-<p align="center">
   <img width="580" src="https://i.ibb.co/pfy09LH/Screenshot-from-2025-01-08-22-04-21.png" />
-</p>
 
 ---
 
@@ -142,9 +128,7 @@ sections:
     icon: hl-whooglesearch
 ```
 
-<p align="center">
   <img width="580" src="https://i.ibb.co/PQzYHmD/homelab-icons-2.png" />
-</p>
 
 ---
 
@@ -166,9 +150,7 @@ sections:
     icon: mdi-google-downasaur
 ```
 
-<p align="center">
   <img width="500" src="https://i.ibb.co/fC9B4mq/icons-mdi-example.png" />
-</p>
 
 ---
 
