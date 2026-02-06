@@ -58,6 +58,11 @@ header.heroBanner {
   margin: 1rem auto;
   text-align: left;
   font-size: 1.2rem;
+  > p, > span {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .keepReading {
@@ -92,8 +97,21 @@ header.heroBanner {
   path { fill:  var(--text-color); }
 }
 
+.sponsorContainer {
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 680px;
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    max-width: 1000px;
+    justify-content: center;
+  }
+}
+
 .sponsor {
-  margin: 1rem auto;
   display: flex;
   flex-direction: column-reverse;
   gap: 0.5rem;
@@ -101,14 +119,22 @@ header.heroBanner {
   padding: 0.5rem;
   border-radius: 6px;
   color: var(--text-color);
+  width: 100%;
+  justify-content: left;
+
+  @media screen and (min-width: 1200px) {
+    flex: 1 1 0;
+    min-height: 100%;
+  }
+
   img {
     border-radius: 6px;
   }
   span {
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
     a {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--text-color);
     }
   }
