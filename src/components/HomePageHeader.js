@@ -68,7 +68,7 @@ export default function HomepageHeader() {
             {' '}- the personal home cloud and OS for self-hosting
           </span>
           <a href="https://umbrel.com?ref=dashy" target="_blank" rel="noopener noreferrer" style={{margin: '0 auto'}}>
-            <img src="https://cdn.as93.net/sponsors/umbrel-banner.jpg" alt="Umbrel" style={{width: '100%', maxWidth: '320px', height: 'auto'}} />
+            <img src="https://cdn.as93.net/sponsors/umbrel-banner.jpg/w512" alt="Umbrel" style={{width: '100%', maxWidth: '320px', height: 'auto'}} />
           </a>
         </div>
 
@@ -81,7 +81,7 @@ export default function HomepageHeader() {
             {' '}- The world's first full-stack Agentic AI Quality Engineering platform
           </span>
           <a href="https://www.testmu.ai/?utm_source=dashy&utm_medium=sponsor" target="_blank" rel="noopener noreferrer" style={{margin: '0 auto'}}>
-            <img src="https://cdn.as93.net/sponsors/test-mu-ai.png" alt="TestMu AI" style={{width: '100%', maxWidth: '320px', height: 'auto'}} />
+            <img src="https://cdn.as93.net/sponsors/test-mu-ai.png/w512" alt="TestMu AI" style={{width: '100%', maxWidth: '320px', height: 'auto'}} />
           </a>
         </div>
       </div>
