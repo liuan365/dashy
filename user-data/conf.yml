@@ -3,7 +3,6 @@ appConfig:
   auth:
     users:
       - user: admin
-        hash: "$2a$10$wVxA7wXwQXx7JNJ3k8a8KeYJ3k8a8KeYJ3k8a8KeYJ3k8a8Ke"
         password: "liuan123"
         type: admin
     enable: true
