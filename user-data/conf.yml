@@ -1,5 +1,11 @@
 appConfig:
   language: zh-CN
+  auth:
+    enable: true
+    users:
+      - user: admin
+        hash: "$2a$10$cLXyE46jTH4BnLKwb529w.cOUtv6F79PsT50yZ4RAAjtlkOW2RDV6"
+        type: admin
 
 pageInfo:
   title: "我的导航"
