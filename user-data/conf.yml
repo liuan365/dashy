@@ -1,47 +1,34 @@
----
-# Page meta info, like heading, footer text and nav links
-pageInfo:
-  title: Dashy
-  description: Welcome to your new dashboard!
-  navLinks:
-  - title: GitHub
-    path: https://github.com/Lissy93/dashy
-  - title: Documentation
-    path: https://dashy.to/docs
-
-# Optional app settings and configuration
 appConfig:
-  theme: colorful
+  language: zh-CN
+  auth:
+    users:
+      - user: admin
+        hash: "$2a$10$wVxA7wXwQXx7JNJ3k8a8KeYJ3k8a8KeYJ3k8a8KeYJ3k8a8Ke"
+        password: "liuan123"
+        type: admin
+    enable: true
 
-# Main content - An array of sections, each containing an array of items
+pageInfo:
+  title: "我的导航"
+  description: "个人导航主页"
+
 sections:
-- name: Getting Started
-  icon: fas fa-rocket
-  items:
-  - title: Dashy Live
-    description: Development a project management links for Dashy
-    icon: https://i.ibb.co/qWWpD0v/astro-dab-128.png
-    url: https://live.dashy.to/
-    target: newtab
-  - title: GitHub
-    description: Source Code, Issues and Pull Requests
-    url: https://github.com/lissy93/dashy
-    icon: favicon
-  - title: Docs
-    description: Configuring & Usage Documentation
-    provider: Dashy.to
-    icon: far fa-book
-    url: https://dashy.to/docs
-  - title: Showcase
-    description: See how others are using Dashy
-    url: https://github.com/Lissy93/dashy/blob/master/docs/showcase.md
-    icon: far fa-grin-hearts
-  - title: Config Guide
-    description: See full list of configuration options
-    url: https://github.com/Lissy93/dashy/blob/master/docs/configuring.md
-    icon: fas fa-wrench
-  - title: Support
-    description: Get help with Dashy, raise a bug, or get in contact
-    url: https://github.com/Lissy93/dashy/blob/master/.github/SUPPORT.md
-    icon: far fa-hands-helping
-  
+  - name: "常用网站"
+    items:
+      - title: "Google"
+        url: "https://www.google.com"
+        icon: "fa fa-google"
+      - title: "GitHub"
+        url: "https://github.com"
+        icon: "fa fa-github"
+      - title: "YouTube"
+        url: "https://www.youtube.com"
+        icon: "fa fa-youtube"
+  - name: "开发工具"
+    items:
+      - title: "Vercel"
+        url: "https://vercel.com"
+        icon: "fa fa-v"
+      - title: "Stack Overflow"
+        url: "https://stackoverflow.com"
+        icon: "fa fa-stack-overflow"
