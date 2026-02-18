@@ -1,11 +1,5 @@
 appConfig:
   language: zh-CN
-  auth:
-    users:
-      - user: admin
-        password: "liuan123"
-        type: admin
-    enable: true
 
 pageInfo:
   title: "我的导航"
